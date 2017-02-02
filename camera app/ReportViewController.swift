@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ReportViewController: UIViewController {
+class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var areas = ["Area 1", "Area 2","Area 3","Area 4","Area 5","Area 6","Area 7","Area 8", ];
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +24,43 @@ class ReportViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    
+        
     }
-    */
+
+    
+    // MARK: - Picker View
+    
+    @IBOutlet weak var pickerAreas: UIPickerView!
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return areas[row]
+    }
+    
+    // returns the number of 'columns' to display.
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        
+        return 1
+    }
+    
+    
+    // returns the # of rows in each component..
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        
+        return areas.count
+    }
+    
+    
+    // MARK: - Other Methods
+    @IBAction func hidesKeyboard(_ sender: Any) {
+        
+        view.endEditing(true)
+    }
+
+
 
 }

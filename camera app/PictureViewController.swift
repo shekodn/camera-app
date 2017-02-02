@@ -11,39 +11,22 @@ import UIKit
 class PictureViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
-    var imgImage : UIImageView!
+    var imgImage : UIImage!
 
     
-    func canTakePicture(){
-        
-        print("canTakePicture")
-        
-    
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
     }
-    
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        
-    }
+//    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+//        
+//    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
 }
