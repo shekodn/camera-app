@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     
     @IBOutlet weak var cameraView: UIView!
@@ -18,6 +18,7 @@ class CameraViewController: UIViewController {
     var captureSession = AVCaptureSession()
     var sessionOutput = AVCapturePhotoOutput()
     var previewLayer = AVCaptureVideoPreviewLayer()
+    var imgCapturedImage : UIImage!
 
     
     override func viewDidLoad() {
@@ -25,6 +26,11 @@ class CameraViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func unwindPicture(unwindSegue:UIStoryboardSegue){
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,6 +73,70 @@ class CameraViewController: UIViewController {
                     print(AVError)
                 }
             }
+        }
+    }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        
+        print("SHOULD PERFROM")
+        
+        
+        return true
+        
+    }
+    
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+        
+        if let error = error {
+            
+            print(error.localizedDescription)
+        }
+        
+        if let sampleBuffer = photoSampleBuffer, let previewBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer){
+            
+            imgCapturedImage = UIImage(data: dataImage)
+            print("IMAGE CAPTURED")
+            //captureSession.stopRunning()
+
+            
+        } else{
+            
+            print("IMAGE NOT CAPTURED")
+
+        }
+        
+        
+        
+        
+    }
+    
+    @IBAction func takesPhoto(_ sender: Any) {
+        
+        let settings = AVCapturePhotoSettings()
+        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
+        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String : previewPixelType, kCVPixelBufferWidthKey as String : 160, kCVPixelBufferHeightKey as String:160]
+        
+        settings.previewPhotoFormat = previewFormat
+        sessionOutput.capturePhoto(with: settings, delegate: self)
+        
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if (segue.identifier == "toPicture"){
+            
+            print("Switched to photo view controller")
+            
+            let viewPicture = segue.destination as! PictureViewController
+            print("SUCCESS")
+            
+            viewPicture.canTakePicture()
+
         }
     }
 }
