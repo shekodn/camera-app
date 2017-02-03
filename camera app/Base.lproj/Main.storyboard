@@ -24,22 +24,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpS-cA-3zc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEU-bf-vDf">
-                                        <rect key="frame" x="121.5" y="490" width="77" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="aiv-NS-3aH"/>
-                                            <constraint firstAttribute="width" constant="77" id="rEc-LU-11Q"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEU-bf-vDf">
+                                        <rect key="frame" x="130" y="491" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="createsnap_btn"/>
                                         <connections>
                                             <action selector="takesPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3rO-Yg-tzf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yk7-Lc-J60">
-                                        <rect key="frame" x="8" y="8" width="51" height="51"/>
+                                        <rect key="frame" x="8" y="8" width="65" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="51" id="8pV-Zw-jnr"/>
-                                            <constraint firstAttribute="height" constant="51" id="Ipu-we-DlF"/>
+                                            <constraint firstAttribute="width" constant="65" id="8pV-Zw-jnr"/>
+                                            <constraint firstAttribute="height" constant="65" id="Ipu-we-DlF"/>
                                         </constraints>
                                         <state key="normal" image="flash_btn"/>
                                         <connections>
@@ -49,22 +46,11 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-fr-3Ye">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lv3-04-LGL">
-                                        <rect key="frame" x="8" y="9" width="51" height="53"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="51" id="QON-qm-B39"/>
-                                            <constraint firstAttribute="height" constant="53" id="sfl-mm-lCb"/>
-                                        </constraints>
-                                        <state key="normal" image="re_snap_btn"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kKS-z2-iCM"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzK-xF-CTY">
-                                        <rect key="frame" x="8" y="500" width="51" height="51"/>
+                                        <rect key="frame" x="8" y="491" width="65" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="51" id="RsX-Y6-k8O"/>
-                                            <constraint firstAttribute="height" constant="51" id="xnl-nn-cpK"/>
+                                            <constraint firstAttribute="width" constant="65" id="RsX-Y6-k8O"/>
+                                            <constraint firstAttribute="height" constant="65" id="xnl-nn-cpK"/>
                                         </constraints>
                                         <state key="normal" image="download_snap"/>
                                         <connections>
@@ -72,32 +58,41 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVc-Qn-uaL">
-                                        <rect key="frame" x="262" y="500" width="50" height="51"/>
+                                        <rect key="frame" x="247" y="491" width="65" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="IJH-eW-k6J"/>
-                                            <constraint firstAttribute="height" constant="51" id="saP-K2-2Ya"/>
+                                            <constraint firstAttribute="width" constant="65" id="IJH-eW-k6J"/>
+                                            <constraint firstAttribute="height" constant="65" id="saP-K2-2Ya"/>
                                         </constraints>
-                                        <state key="normal" image="send_btn"/>
+                                        <state key="normal" image="send_snap"/>
                                         <connections>
                                             <segue destination="Nel-3C-u9r" kind="presentation" identifier="toReport" id="0jo-jJ-JAF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lv3-04-LGL">
+                                        <rect key="frame" x="8" y="8" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="QON-qm-B39"/>
+                                            <constraint firstAttribute="height" constant="65" id="sfl-mm-lCb"/>
+                                        </constraints>
+                                        <state key="normal" image="re_snap_btn"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kKS-z2-iCM"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xzK-xF-CTY" firstAttribute="leading" secondItem="fpS-cA-3zc" secondAttribute="leading" constant="8" id="9oz-Ci-Z27"/>
                                     <constraint firstItem="MZB-fr-3Ye" firstAttribute="top" secondItem="fpS-cA-3zc" secondAttribute="top" id="ID5-q3-IFo"/>
-                                    <constraint firstAttribute="bottom" secondItem="xzK-xF-CTY" secondAttribute="bottom" constant="17" id="LbI-bc-d05"/>
+                                    <constraint firstAttribute="bottom" secondItem="xzK-xF-CTY" secondAttribute="bottom" constant="12" id="LbI-bc-d05"/>
                                     <constraint firstAttribute="bottom" secondItem="MZB-fr-3Ye" secondAttribute="bottom" id="RM2-vz-FwU"/>
                                     <constraint firstItem="Yk7-Lc-J60" firstAttribute="top" secondItem="fpS-cA-3zc" secondAttribute="top" constant="8" id="Sv3-Yp-6DH"/>
                                     <constraint firstItem="Lv3-04-LGL" firstAttribute="leading" secondItem="fpS-cA-3zc" secondAttribute="leading" constant="8" id="X2J-8S-0vy"/>
-                                    <constraint firstItem="Lv3-04-LGL" firstAttribute="top" secondItem="fpS-cA-3zc" secondAttribute="top" constant="9" id="XFg-Qd-5ra"/>
+                                    <constraint firstItem="Lv3-04-LGL" firstAttribute="top" secondItem="fpS-cA-3zc" secondAttribute="top" constant="8" id="XFg-Qd-5ra"/>
                                     <constraint firstAttribute="trailing" secondItem="MZB-fr-3Ye" secondAttribute="trailing" constant="-1" id="c8y-Pr-Eh9"/>
                                     <constraint firstItem="Yk7-Lc-J60" firstAttribute="leading" secondItem="fpS-cA-3zc" secondAttribute="leading" constant="8" id="fR7-vL-Lc3"/>
                                     <constraint firstAttribute="trailing" secondItem="NVc-Qn-uaL" secondAttribute="trailing" constant="8" id="j5y-ZA-2SF"/>
-                                    <constraint firstAttribute="bottom" secondItem="NVc-Qn-uaL" secondAttribute="bottom" constant="17" id="oLO-Ev-2ef"/>
+                                    <constraint firstAttribute="bottom" secondItem="NVc-Qn-uaL" secondAttribute="bottom" constant="12" id="oLO-Ev-2ef"/>
                                     <constraint firstItem="MZB-fr-3Ye" firstAttribute="leading" secondItem="fpS-cA-3zc" secondAttribute="leading" id="uBT-Ul-pfy"/>
-                                    <constraint firstAttribute="bottom" secondItem="SEU-bf-vDf" secondAttribute="bottom" constant="8" id="uFF-V7-jYV"/>
-                                    <constraint firstItem="SEU-bf-vDf" firstAttribute="centerX" secondItem="fpS-cA-3zc" secondAttribute="centerX" id="wQH-zS-IyG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -139,6 +134,10 @@
                                 <rect key="frame" x="255" y="518" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitReport:" destination="Nel-3C-u9r" eventType="touchUpInside" id="5rH-Hc-9E6"/>
+                                    <segue destination="IGj-K0-7vx" kind="unwind" unwindAction="unwindReportWithUnwindSegue:" id="dFW-CC-JL8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSv-U8-bh1">
                                 <rect key="frame" x="83" y="28" width="155" height="33"/>
@@ -163,18 +162,18 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Area:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHG-MT-BiG">
-                                <rect key="frame" x="83" y="268" width="155" height="33"/>
+                                <rect key="frame" x="82" y="268" width="155" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Eg. Boxes with inventroy were damaged" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sny-Yj-DgX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sny-Yj-DgX">
                                 <rect key="frame" x="40" y="69" width="240" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.88379004179999998" blue="0.22542128180000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -199,7 +198,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1267.5" y="137.32394366197184"/>
+            <point key="canvasLocation" x="1268" y="138"/>
         </scene>
     </scenes>
     <resources>
@@ -207,6 +206,6 @@
         <image name="download_snap" width="21" height="24"/>
         <image name="flash_btn" width="16" height="22"/>
         <image name="re_snap_btn" width="16" height="16"/>
-        <image name="send_btn" width="11" height="18"/>
+        <image name="send_snap" width="24" height="23"/>
     </resources>
 </document>

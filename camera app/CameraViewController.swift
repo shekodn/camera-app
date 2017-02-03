@@ -12,9 +12,6 @@ import AVFoundation
 class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
    
-    
-    //Buttons
-    
     //Camera View
     @IBOutlet weak var btnTakePhoto: UIButton!
     @IBOutlet weak var btnFlash: UIButton!
@@ -33,7 +30,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var previewLayer = AVCaptureVideoPreviewLayer()
     var imgCapturedImage : UIImage!
     
-    
     var withFlash = false
     var isCaptured = false
 
@@ -45,7 +41,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         state()
 
     }
-    
+
     
     func state(){
     
@@ -69,7 +65,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             btnTakePhoto.isHidden = false
             btnFlash.isHidden = false
             
-            
             //Photo Taken View
             btnCancel.isHidden = true
             btnSaveToDevice.isHidden = true
@@ -78,8 +73,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         }
     
     }
-    
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -121,7 +114,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                         cameraView.addSubview(btnConfirm)
                         cameraView.addSubview(btnSaveToDevice)
 
-                        
                         previewLayer.position = CGPoint(x: self.cameraView.frame.width / 2, y: self.cameraView.frame.height / 2)
                         previewLayer.bounds = cameraView.frame
                         
@@ -137,7 +129,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     
-    
+    //MARK: - Camera Methods
+
     func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         
         if let error = error {
@@ -164,6 +157,25 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
+    
+    
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    
+        print("Switched to photo View controller")
+    }
+    
+    
+    @IBAction func unwindReport(unwindSegue : UIStoryboardSegue) {
+        
+        
+    }
+    
+
+    //MARK: - Action Methods
+    
     @IBAction func takesPhoto(_ sender: Any) {
         
         let settings = AVCapturePhotoSettings()
@@ -175,18 +187,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
-        
-        print("Switched to photo View controller")
-        
-        
-    }
-    
-    //MARK: - Button Methods
-    
+
     
     @IBAction func cancel(_ sender: Any) {
         
@@ -203,7 +204,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
-    
+
         
     @IBAction func flash(_ sender: UIButton) {
         
@@ -212,15 +213,24 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         if(withFlash){
             
+            //flash config on
+            //change flash button icon
             
+        } else{
+            
+            //flash config off
+            //change flash button icon
+
         }
 
     }
     
     
-    @IBAction func unwindReport(unwindSegue : UIStoryboardSegue) {
-        
-        //
+    // MARK: - Other methods
+    func resetCamera(){
+        print("camera reseted")
+        isCaptured = false
+        state()
     }
 
     

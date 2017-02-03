@@ -20,10 +20,10 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
+    //MARK: - Segue
     
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
     
@@ -60,7 +60,24 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         view.endEditing(true)
     }
+    
+    
+    @IBAction func submitReport(_ sender: UIButton) {
+    
+        let alert = UIAlertController(title: "Congratulations!", message: "Your report was successfully sent!", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            
+            CameraViewController().resetCamera()
 
-
-
+        }))
+       
+        present(alert,animated: true, completion: nil)
+    }
+    
+    
+    func backToCamera(){
+        
+        CameraViewController().resetCamera()
+    }
 }
