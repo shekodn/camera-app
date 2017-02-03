@@ -11,11 +11,14 @@ import AVFoundation
 
 class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
-   
     //Camera View
     @IBOutlet weak var btnTakePhoto: UIButton!
     @IBOutlet weak var btnFlash: UIButton!
+    @IBOutlet weak var btnSettings: UIButton!
+    @IBOutlet weak var btnReports: UIButton!
 
+
+    
     
     //Photo Taken View
     @IBOutlet weak var btnCancel: UIButton!
@@ -29,6 +32,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var sessionOutput = AVCapturePhotoOutput()
     var previewLayer = AVCaptureVideoPreviewLayer()
     var imgCapturedImage : UIImage!
+
     
     var withFlash = false
     var isCaptured = false
@@ -38,9 +42,20 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+
+        
         state()
 
     }
+    
+    
 
     
     func state(){
@@ -49,13 +64,30 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             //Camera View
             btnTakePhoto.isHidden = true
+            btnTakePhoto.isEnabled = false
+
             btnFlash.isHidden = true
+            btnFlash.isEnabled = false
+
+            btnSettings.isHidden = true
+            btnSettings.isEnabled = false
+            
+            btnReports.isHidden = true
+            btnReports.isEnabled = false
+
             
             
             //Photo Taken View
             btnCancel.isHidden = false
+            btnCancel.isEnabled = true
+            
             btnSaveToDevice.isHidden = false
+            btnSaveToDevice.isEnabled = true
+            
             btnConfirm.isHidden = false
+            btnConfirm.isEnabled = true
+
+
             imageView.isHidden = false
 
             
@@ -63,12 +95,28 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             //Camera View
             btnTakePhoto.isHidden = false
+            btnTakePhoto.isEnabled = true
+
             btnFlash.isHidden = false
-            
+            btnFlash.isEnabled = true
+
+            btnSettings.isHidden = false
+            btnSettings.isEnabled = true
+
+            btnReports.isHidden = false
+            btnReports.isEnabled = true
+
+
             //Photo Taken View
             btnCancel.isHidden = true
+            btnCancel.isEnabled = false
+           
             btnSaveToDevice.isHidden = true
+            btnSaveToDevice.isEnabled = false
+            
             btnConfirm.isHidden = true
+            btnConfirm.isEnabled = false
+            
             imageView.isHidden = true
         }
     
@@ -77,6 +125,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        state()
+
         
         let deviceSession = AVCaptureDeviceDiscoverySession(deviceTypes:
             [.builtInDuoCamera,.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .unspecified)
@@ -107,6 +158,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                         //Before Capture
                         cameraView.addSubview(btnTakePhoto)
                         cameraView.addSubview(btnFlash)
+                        cameraView.addSubview(btnSettings)
+                        cameraView.addSubview(btnReports)
+
 
                         //After Capture
                         cameraView.addSubview(imageView)
@@ -164,12 +218,14 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
     
-        print("Switched to photo View controller")
+        if (segue.identifier == "toSettings"){
+            
+            print("To settings")
+        }
     }
     
     
     @IBAction func unwindReport(unwindSegue : UIStoryboardSegue) {
-        
         
     }
     
@@ -209,7 +265,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func flash(_ sender: UIButton) {
         
         print("Flash pressed")
-        withFlash = !withFlash
         
         if(withFlash){
             
@@ -220,17 +275,51 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             //flash config off
             //change flash button icon
-
         }
-
     }
     
     
     // MARK: - Other methods
     func resetCamera(){
-        print("camera reseted")
         isCaptured = false
         state()
+        print("camera reseted")
+    }
+    
+    
+    @IBAction func settings(_ sender: UIButton) {
+        
+        print("Settings pressed")
+    }
+    
+    @IBAction func reports(_ sender: UIButton) {
+        
+        print("Reports pressed")
+
+        
+    }
+    
+    func swiped(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+                
+            case UISwipeGestureRecognizerDirection.right:
+                print("User Swiped Right")
+
+            case UISwipeGestureRecognizerDirection.left:
+                print("User Swiped Left")
+            
+            default:
+                break
+                
+            }
+            
+            
+        }
+        
+        
     }
 
     

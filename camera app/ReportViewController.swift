@@ -10,31 +10,61 @@ import UIKit
 
 class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var areas = ["Area 1", "Area 2","Area 3","Area 4","Area 5","Area 6","Area 7","Area 8", ];
+    @IBOutlet weak var btnSubmit: UIButton!
+    
+    //Variables
+    @IBOutlet weak var tfArea: UITextField!
+    var areas = ["Area 1", "Area 2","Area 3","Area 4","Area 5","Area 6","Area 7","Area 8"];
+    var pickerView = UIPickerView()
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Picker view settings
 
-        // Do any additional setup after loading the view.
-    }
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        tfArea.inputView = pickerView
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
+    
+    
+    
 
+
+    
     //MARK: - Segue
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        let button = sender as! UIButton
+        
+        if button.tag == 1 {
+            print("sender = 1" )
+            submitReport(btnSubmit)
+            CameraViewController().resetCamera()
+            
+        }
+
+        
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        
+    }
     
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
     
-        
     }
 
     
     // MARK: - Picker View
-    
-    @IBOutlet weak var pickerAreas: UIPickerView!
-    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -53,6 +83,12 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         return areas.count
     }
+
+    //selects the current option in the picker view
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        tfArea.text = areas[row]
+    }
     
     
     // MARK: - Other Methods
@@ -68,16 +104,10 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
             
-            CameraViewController().resetCamera()
 
         }))
        
         present(alert,animated: true, completion: nil)
     }
     
-    
-    func backToCamera(){
-        
-        CameraViewController().resetCamera()
-    }
 }
