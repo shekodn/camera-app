@@ -10,6 +10,7 @@ import UIKit
 
 class ReportsViewController: UITableViewController {
 
+    @IBOutlet var tvReports: UITableView!
     
     var reports = [Report]()
     
@@ -21,6 +22,7 @@ class ReportsViewController: UITableViewController {
         for report in 1...20{
             
             temporal.id = report
+            temporal.description = "Quisque sit amet egestas lectus. Maecenas convallis dui vitae tempus porta. Curabitur id nisi vulputate, tristique ligula non, maximus lectus. Aenean non fermentum nisi, ac mollis tellus. In hac habitasse platea dictumst. Sed sit amet elit pretium urna sollicitudin eleifend. Morbi vel lorem nunc. In eleifend urna quis est accumsan porta eu in magna. Donec sit amet quam non nisl aliquet sagittis."
             reports.append(temporal)
         }
     }
@@ -35,7 +37,7 @@ class ReportsViewController: UITableViewController {
         init() {
             
             id = 0
-            name = "No name"
+            name = "Report"
             description = "No description"
         }
         
@@ -44,8 +46,7 @@ class ReportsViewController: UITableViewController {
             self.id = id
             self.name = name
             self.description = description
-        }
-        
+        }        
     }
 
     
@@ -56,6 +57,25 @@ class ReportsViewController: UITableViewController {
         reportSeeds()
 
     }
+    
+    // Mark: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        let indexPath = tvReports.indexPathForSelectedRow
+        
+        let viewSpecificReport = segue.destination as! SpecificReportVC
+        
+        print("INDEX = \(indexPath!.row)")
+        
+        viewSpecificReport.sReportName = ("\(reports[indexPath!.row].name) #\((indexPath!.row))")
+        viewSpecificReport.sReportDescription = reports[indexPath!.row].description
+
+        
+    }
+
+    
 
    
 

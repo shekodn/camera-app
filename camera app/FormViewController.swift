@@ -31,8 +31,6 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     
-
-    
     
     //MARK: - Segue
     

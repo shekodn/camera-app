@@ -40,7 +40,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 
     
     override func viewDidLoad() {
+
+        print("BEFORE")
         super.viewDidLoad()
+        print("After")
+
         
         gestureSetup()
         state()

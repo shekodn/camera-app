@@ -104,6 +104,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="xzK-xF-CTY" firstAttribute="leading" secondItem="fpS-cA-3zc" secondAttribute="leading" constant="8" id="9oz-Ci-Z27"/>
                                     <constraint firstItem="MZB-fr-3Ye" firstAttribute="top" secondItem="fpS-cA-3zc" secondAttribute="top" id="ID5-q3-IFo"/>
@@ -154,35 +155,38 @@
         <!--Reports-->
         <scene sceneID="pyp-D6-snx">
             <objects>
-                <tableViewController title="Reports" id="uHm-Dp-cNZ" customClass="ReportsViewController" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6rx-x3-gbu">
+                <tableViewController title="Reports" modalTransitionStyle="crossDissolve" id="uHm-Dp-cNZ" customClass="ReportsViewController" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="177" sectionHeaderHeight="28" sectionFooterHeight="28" id="6rx-x3-gbu">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="MUh-Ga-dGe" detailTextLabel="ATM-je-JSz" style="IBUITableViewCellStyleValue1" id="Vtb-p9-fPb">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="MUh-Ga-dGe" detailTextLabel="ATM-je-JSz" rowHeight="177" style="IBUITableViewCellStyleSubtitle" id="Vtb-p9-fPb">
+                                <rect key="frame" x="0.0" y="28" width="320" height="177"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vtb-p9-fPb" id="NZ5-92-MyO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MUh-Ga-dGe">
-                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="70" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ATM-je-JSz">
-                                            <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ATM-je-JSz">
+                                            <rect key="frame" x="15" y="91" width="33" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="l7g-aV-I2J" kind="show" identifier="toSpecificReport" id="QqC-g6-AvB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -190,15 +194,60 @@
                             <outlet property="delegate" destination="uHm-Dp-cNZ" id="HJt-NF-tM6"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tvReports" destination="6rx-x3-gbu" id="pGu-W7-cLe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hd8-Uv-wyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3557" y="939"/>
+            <point key="canvasLocation" x="3556.875" y="938.02816901408448"/>
+        </scene>
+        <!--Specific ReportVC-->
+        <scene sceneID="90o-ai-lJU">
+            <objects>
+                <viewController id="l7g-aV-I2J" customClass="SpecificReportVC" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rc3-4J-jGx"/>
+                        <viewControllerLayoutGuide type="bottom" id="LGT-KE-asg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fzk-gk-UwQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="accidentDemo" translatesAutoresizingMaskIntoConstraints="NO" id="lVh-dt-Msn">
+                                <rect key="frame" x="40" y="20" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNL-8Y-QFW">
+                                <rect key="frame" x="74" y="156" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CO8-W9-ZEF">
+                                <rect key="frame" x="32" y="194" width="240" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.043245665729045868" green="0.33438393473625183" blue="0.51110851764678955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lbDate" destination="hNL-8Y-QFW" id="qPl-SN-xq6"/>
+                        <outlet property="tvDescription" destination="CO8-W9-ZEF" id="Ozq-B7-EEO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvc-sE-qvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4711.875" y="938.02816901408448"/>
         </scene>
         <!--Settings-->
         <scene sceneID="f1S-6k-zVb">
             <objects>
-                <viewController title="Settings" id="cqk-jd-waH" customClass="SettingsViewController" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" modalTransitionStyle="crossDissolve" id="cqk-jd-waH" customClass="SettingsViewController" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mt5-gF-mJg"/>
                         <viewControllerLayoutGuide type="bottom" id="MVD-h7-4IZ"/>
@@ -322,10 +371,10 @@
             </objects>
             <point key="canvasLocation" x="3556.875" y="154.22535211267606"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationVC-->
         <scene sceneID="2iN-qR-7MA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d7o-eB-uW6" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d7o-eB-uW6" customClass="NavigationVC" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="87v-lc-72c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -345,6 +394,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="accidentDemo" width="641" height="474"/>
         <image name="createsnap_btn" width="30" height="30"/>
         <image name="download_snap" width="21" height="24"/>
         <image name="flash_btn" width="16" height="22"/>
