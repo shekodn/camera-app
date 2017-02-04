@@ -17,13 +17,13 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var btnSettings: UIButton!
     @IBOutlet weak var btnReports: UIButton!
 
-
-    
     
     //Photo Taken View
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnSaveToDevice: UIButton!
     @IBOutlet weak var btnConfirm: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+
     
     
     //Camera
@@ -33,30 +33,19 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var previewLayer = AVCaptureVideoPreviewLayer()
     var imgCapturedImage : UIImage!
 
-    
-    var withFlash = false
-    var isCaptured = false
 
-    @IBOutlet weak var imageView: UIImageView!
+    //Flags
+    var withFlash = false //enable/disbale flash
+    var isCaptured = false //photo is about to be captured or wasalready taken
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
-        self.view.addGestureRecognizer(swipeLeft)
-
-        
+        gestureSetup()
         state()
-
     }
     
-    
-
     
     func state(){
     
@@ -119,15 +108,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             imageView.isHidden = true
         }
-    
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        state()
-
         
         let deviceSession = AVCaptureDeviceDiscoverySession(deviceTypes:
             [.builtInDuoCamera,.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .unspecified)
@@ -183,6 +168,20 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     
+    
+    //Hide navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+
+    
+    
     //MARK: - Camera Methods
 
     func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
@@ -199,28 +198,25 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             isCaptured = true
             state()
             print("IMAGE CAPTURED")
-            
             //captureSession.stopRunning()
 
-            
         } else{
-            
             print("IMAGE NOT CAPTURED")
-
         }
-        
     }
     
     
-    
-    
     //MARK: - Segue
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
     
         if (segue.identifier == "toSettings"){
             
             print("To settings")
+        }
+        
+        if (segue.identifier == "toNavigation"){
+            
+            print("to navigation")
         }
     }
     
@@ -250,7 +246,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         print("Cancel pressed")
         isCaptured = false
         state()
-
 
     }
     
@@ -290,13 +285,28 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func settings(_ sender: UIButton) {
         
         print("Settings pressed")
+        performSegue(withIdentifier: "toSettings", sender: nil)
+
     }
     
     @IBAction func reports(_ sender: UIButton) {
         
         print("Reports pressed")
+        performSegue(withIdentifier: "toReports", sender: nil)
 
+
+    }
+    
+    func gestureSetup(){
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(CameraViewController.swiped(gesture:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+
     }
     
     func swiped(gesture: UIGestureRecognizer) {
@@ -315,12 +325,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 break
                 
             }
-            
-            
         }
-        
-        
     }
-
-    
 }

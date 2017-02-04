@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		464FE2B81E428B0400185993 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FE2B71E428B0400185993 /* ReportViewController.swift */; };
+		464FE2B81E428B0400185993 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FE2B71E428B0400185993 /* FormViewController.swift */; };
+		465011A01E45650D00A92DAC /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650119F1E45650D00A92DAC /* ReportsViewController.swift */; };
+		465011A21E45691100A92DAC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465011A11E45691100A92DAC /* SettingsViewController.swift */; };
 		468D142B1E4126B100E3C471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468D142A1E4126B100E3C471 /* AppDelegate.swift */; };
 		468D142D1E4126B100E3C471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468D142C1E4126B100E3C471 /* ViewController.swift */; };
 		468D14301E4126B100E3C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468D142E1E4126B100E3C471 /* Main.storyboard */; };
@@ -17,7 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		464FE2B71E428B0400185993 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		464FE2B71E428B0400185993 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		4650119F1E45650D00A92DAC /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		465011A11E45691100A92DAC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		468D14271E4126B100E3C471 /* camera app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "camera app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		468D142A1E4126B100E3C471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		468D142C1E4126B100E3C471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +65,9 @@
 				468D142A1E4126B100E3C471 /* AppDelegate.swift */,
 				468D142C1E4126B100E3C471 /* ViewController.swift */,
 				468D142E1E4126B100E3C471 /* Main.storyboard */,
-				464FE2B71E428B0400185993 /* ReportViewController.swift */,
+				4650119F1E45650D00A92DAC /* ReportsViewController.swift */,
+				465011A11E45691100A92DAC /* SettingsViewController.swift */,
+				464FE2B71E428B0400185993 /* FormViewController.swift */,
 				468D143C1E41341A00E3C471 /* CameraViewController.swift */,
 				468D14311E4126B100E3C471 /* Assets.xcassets */,
 				468D14331E4126B100E3C471 /* LaunchScreen.storyboard */,
@@ -145,8 +151,10 @@
 			files = (
 				468D142D1E4126B100E3C471 /* ViewController.swift in Sources */,
 				468D142B1E4126B100E3C471 /* AppDelegate.swift in Sources */,
-				464FE2B81E428B0400185993 /* ReportViewController.swift in Sources */,
+				465011A01E45650D00A92DAC /* ReportsViewController.swift in Sources */,
+				464FE2B81E428B0400185993 /* FormViewController.swift in Sources */,
 				468D143D1E41341A00E3C471 /* CameraViewController.swift in Sources */,
+				465011A21E45691100A92DAC /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

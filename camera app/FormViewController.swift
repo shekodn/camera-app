@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    //Input fields
+    @IBOutlet weak var tvDescription: UITextView!
+    @IBOutlet weak var tfArea: UITextField!
     
+    //Buttons
     @IBOutlet weak var btnSubmit: UIButton!
+
     
     //Variables
-    @IBOutlet weak var tfArea: UITextField!
     var areas = ["Area 1", "Area 2","Area 3","Area 4","Area 5","Area 6","Area 7","Area 8"];
     var pickerView = UIPickerView()
 
@@ -22,31 +27,20 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Picker view settings
-
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        tfArea.inputView = pickerView
-
+        pickerViewSettings()
     }
     
     
-    
-    
 
-
+    
     
     //MARK: - Segue
-    
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         let button = sender as! UIButton
         
-        if button.tag == 1 {
-            print("sender = 1" )
-            submitReport(btnSubmit)
-            CameraViewController().resetCamera()
+        if button.tag == 1 { // 1 = submit button
             
         }
 
@@ -57,14 +51,32 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         
-    }
-    
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-    
-    }
+        let button = sender as! UIButton
+        
+        if button.tag == 1 {
+            
+            print("SUBMIT")
+            submitReport(btnSubmit)
+            
+        } else{
+            
+            print("BACK")
+        }
 
+    }
+    
     
     // MARK: - Picker View
+    
+    //Presets for the picker view to work
+    func pickerViewSettings(){
+     
+        //Picker view settings
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        tfArea.inputView = pickerView
+
+    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -104,10 +116,13 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
             
-
+            print("add action")
+            
         }))
        
-        present(alert,animated: true, completion: nil)
+        present(alert,animated: true, completion: { action in
+            
+            print("present alert")
+        })
     }
-    
 }
