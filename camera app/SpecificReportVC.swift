@@ -17,21 +17,16 @@ class SpecificReportVC: UIViewController {
     var sReportName = "No name"
     var sReportDescription = "No description."
     
-    
-
-
-    
     func setDate(){
         
-        var date = Date()
-        var dateFormat = DateFormatter()
+        let date = Date()
+        let dateFormat = DateFormatter()
         
         //12,12,2012
         dateFormat.dateFormat = "d/M/y"
         lbDate.text = String(describing: dateFormat.string(from: date))
-        
-
     }
+    
     
     
     func loadReport(){

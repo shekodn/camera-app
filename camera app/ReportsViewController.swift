@@ -17,7 +17,7 @@ class ReportsViewController: UITableViewController {
     
     func reportSeeds(){
         
-        var temporal = Report()
+        let temporal = Report()
         
         for report in 1...20{
             
@@ -82,7 +82,6 @@ class ReportsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         
         return reports.count
     }

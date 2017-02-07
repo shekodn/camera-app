@@ -13,7 +13,6 @@
 		465011A41E46314F00A92DAC /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465011A31E46314F00A92DAC /* NavigationVC.swift */; };
 		465011A61E46329D00A92DAC /* SpecificReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465011A51E46329D00A92DAC /* SpecificReportVC.swift */; };
 		468D142B1E4126B100E3C471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468D142A1E4126B100E3C471 /* AppDelegate.swift */; };
-		468D142D1E4126B100E3C471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468D142C1E4126B100E3C471 /* ViewController.swift */; };
 		468D14301E4126B100E3C471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468D142E1E4126B100E3C471 /* Main.storyboard */; };
 		468D14321E4126B100E3C471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468D14311E4126B100E3C471 /* Assets.xcassets */; };
 		468D14351E4126B100E3C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468D14331E4126B100E3C471 /* LaunchScreen.storyboard */; };
@@ -28,7 +27,6 @@
 		465011A51E46329D00A92DAC /* SpecificReportVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecificReportVC.swift; sourceTree = "<group>"; };
 		468D14271E4126B100E3C471 /* camera app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "camera app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		468D142A1E4126B100E3C471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		468D142C1E4126B100E3C471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		468D142F1E4126B100E3C471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		468D14311E4126B100E3C471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		468D14341E4126B100E3C471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +45,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465011A71E46413100A92DAC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				465011A11E45691100A92DAC /* SettingsViewController.swift */,
+				468D143C1E41341A00E3C471 /* CameraViewController.swift */,
+				464FE2B71E428B0400185993 /* FormViewController.swift */,
+				4650119F1E45650D00A92DAC /* ReportsViewController.swift */,
+				465011A51E46329D00A92DAC /* SpecificReportVC.swift */,
+				465011A31E46314F00A92DAC /* NavigationVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		468D141E1E4126B100E3C471 = {
 			isa = PBXGroup;
 			children = (
@@ -66,15 +77,9 @@
 		468D14291E4126B100E3C471 /* camera app */ = {
 			isa = PBXGroup;
 			children = (
+				465011A71E46413100A92DAC /* Controllers */,
 				468D142A1E4126B100E3C471 /* AppDelegate.swift */,
-				468D142C1E4126B100E3C471 /* ViewController.swift */,
 				468D142E1E4126B100E3C471 /* Main.storyboard */,
-				465011A11E45691100A92DAC /* SettingsViewController.swift */,
-				468D143C1E41341A00E3C471 /* CameraViewController.swift */,
-				464FE2B71E428B0400185993 /* FormViewController.swift */,
-				4650119F1E45650D00A92DAC /* ReportsViewController.swift */,
-				465011A51E46329D00A92DAC /* SpecificReportVC.swift */,
-				465011A31E46314F00A92DAC /* NavigationVC.swift */,
 				468D14311E4126B100E3C471 /* Assets.xcassets */,
 				468D14331E4126B100E3C471 /* LaunchScreen.storyboard */,
 				468D14361E4126B100E3C471 /* Info.plist */,
@@ -156,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				465011A41E46314F00A92DAC /* NavigationVC.swift in Sources */,
-				468D142D1E4126B100E3C471 /* ViewController.swift in Sources */,
 				468D142B1E4126B100E3C471 /* AppDelegate.swift in Sources */,
 				465011A01E45650D00A92DAC /* ReportsViewController.swift in Sources */,
 				465011A61E46329D00A92DAC /* SpecificReportVC.swift in Sources */,

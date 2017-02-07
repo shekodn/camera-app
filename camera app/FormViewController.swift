@@ -16,13 +16,14 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     //Buttons
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var btnBack: UIBarButtonItem!
+
 
     
     //Variables
     var areas = ["Area 1", "Area 2","Area 3","Area 4","Area 5","Area 6","Area 7","Area 8"];
     var pickerView = UIPickerView()
 
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +34,31 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     
     //MARK: - Segue
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        let button = sender as! UIButton
-        
-        if button.tag == 1 { // 1 = submit button
+        if let typeOfButtom = sender as? UIButton{
             
+            if (btnSubmit.tag == 1) { // 1 = submit button
+                
+                print("Submit button")
+                
+            }
+            
+        } else{
+            
+            
+            if (btnBack.tag == 0) { // 1 = cancel button
+                
+                print("Cancel nav bar button")
+                
+            }
+            
+
         }
+        
+        
+        
+        
 
         
         return true
@@ -49,18 +67,26 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         
-        let button = sender as! UIButton
         
-        if button.tag == 1 {
+        if let typeOfButtom = sender as? UIButton{
             
-            print("SUBMIT")
-            submitReport(btnSubmit)
+            if (btnSubmit.tag == 1) { // 1 = submit button
+                
+                print("Submit button")
+                submitReport(btnSubmit)
+
+            }
             
         } else{
             
-            print("BACK")
-        }
+            
+            if (btnBack.tag == 0) { // 1 = cancel button
+                
+                print("Cancel nav bar button")
+                
+            }
 
+        }
     }
     
     

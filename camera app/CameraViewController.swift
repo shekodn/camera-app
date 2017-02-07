@@ -17,14 +17,12 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var btnSettings: UIButton!
     @IBOutlet weak var btnReports: UIButton!
 
-    
     //Photo Taken View
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnSaveToDevice: UIButton!
     @IBOutlet weak var btnConfirm: UIButton!
     @IBOutlet weak var imageView: UIImageView!
 
-    
     
     //Camera
     @IBOutlet weak var cameraView: UIView!
@@ -40,12 +38,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 
     
     override func viewDidLoad() {
-
-        print("BEFORE")
         super.viewDidLoad()
-        print("After")
 
-        
         gestureSetup()
         state()
     }
@@ -68,7 +62,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             btnReports.isHidden = true
             btnReports.isEnabled = false
 
-            
             
             //Photo Taken View
             btnCancel.isHidden = false
@@ -144,14 +137,14 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                         
                         cameraView.layer.addSublayer(previewLayer)
                         
-                        //Before Capture
+                        //Before Capture View
                         cameraView.addSubview(btnTakePhoto)
                         cameraView.addSubview(btnFlash)
                         cameraView.addSubview(btnSettings)
                         cameraView.addSubview(btnReports)
 
 
-                        //After Capture
+                        //After Capture View
                         cameraView.addSubview(imageView)
                         cameraView.addSubview(btnCancel)
                         cameraView.addSubview(btnConfirm)
@@ -225,9 +218,14 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     
-    @IBAction func unwindReport(unwindSegue : UIStoryboardSegue) {
+    @IBAction func unwindForm(unwindSegue : UIStoryboardSegue) {
+        
+        print("Cancel in unwind segue")
+        cancel(btnCancel)
         
     }
+    
+    
     
 
     //MARK: - Action Methods
@@ -240,8 +238,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         settings.previewPhotoFormat = previewFormat
         sessionOutput.capturePhoto(with: settings, delegate: self)
-        
-        
     }
 
     
@@ -259,8 +255,6 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
-
-        
     @IBAction func flash(_ sender: UIButton) {
         
         print("Flash pressed")
@@ -298,8 +292,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         print("Reports pressed")
         performSegue(withIdentifier: "toReports", sender: nil)
 
-
     }
+    
+    // MARK: - Gestures
     
     func gestureSetup(){
         
@@ -327,7 +322,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             default:
                 break
-                
+            
             }
         }
     }
