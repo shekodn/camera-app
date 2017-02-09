@@ -14,7 +14,6 @@ class ReportsViewController: UITableViewController {
     
     var reports = [Report]()
     
-    
     func reportSeeds(){
         
         let temporal = Report()
@@ -27,57 +26,26 @@ class ReportsViewController: UITableViewController {
         }
     }
 
-    
-    class Report {
-        
-        var id:Int
-        var name:String
-        var description:String
-        
-        init() {
-            
-            id = 0
-            name = "Report"
-            description = "No description"
-        }
-        
-        init(id:Int, name:String, description:String) {
-            
-            self.id = id
-            self.name = name
-            self.description = description
-        }        
-    }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reportSeeds()
-
     }
     
     // Mark: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         let indexPath = tvReports.indexPathForSelectedRow
-        
         let viewSpecificReport = segue.destination as! SpecificReportVC
         
         print("INDEX = \(indexPath!.row)")
         
         viewSpecificReport.sReportName = ("\(reports[indexPath!.row].name) #\((indexPath!.row))")
         viewSpecificReport.sReportDescription = reports[indexPath!.row].description
-
-        
     }
 
-    
-
-   
 
     // MARK: - Table view data source
 
@@ -93,7 +61,6 @@ class ReportsViewController: UITableViewController {
 
         cell.textLabel?.text = reports[indexPath.row].name
         cell.detailTextLabel?.text = reports[indexPath.row].description
-
 
         return cell
     }

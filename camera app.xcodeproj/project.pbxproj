@@ -17,6 +17,7 @@
 		468D14321E4126B100E3C471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468D14311E4126B100E3C471 /* Assets.xcassets */; };
 		468D14351E4126B100E3C471 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468D14331E4126B100E3C471 /* LaunchScreen.storyboard */; };
 		468D143D1E41341A00E3C471 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468D143C1E41341A00E3C471 /* CameraViewController.swift */; };
+		46B661931E4BBF0500F86BE7 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B661921E4BBF0500F86BE7 /* Report.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		468D14341E4126B100E3C471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		468D14361E4126B100E3C471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		468D143C1E41341A00E3C471 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		46B661921E4BBF0500F86BE7 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		468D14291E4126B100E3C471 /* camera app */ = {
 			isa = PBXGroup;
 			children = (
+				46B661941E4BBF1100F86BE7 /* Models */,
 				465011A71E46413100A92DAC /* Controllers */,
 				468D142A1E4126B100E3C471 /* AppDelegate.swift */,
 				468D142E1E4126B100E3C471 /* Main.storyboard */,
@@ -85,6 +88,14 @@
 				468D14361E4126B100E3C471 /* Info.plist */,
 			);
 			path = "camera app";
+			sourceTree = "<group>";
+		};
+		46B661941E4BBF1100F86BE7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				46B661921E4BBF0500F86BE7 /* Report.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 				465011A41E46314F00A92DAC /* NavigationVC.swift in Sources */,
 				468D142B1E4126B100E3C471 /* AppDelegate.swift in Sources */,
 				465011A01E45650D00A92DAC /* ReportsViewController.swift in Sources */,
+				46B661931E4BBF0500F86BE7 /* Report.swift in Sources */,
 				465011A61E46329D00A92DAC /* SpecificReportVC.swift in Sources */,
 				464FE2B81E428B0400185993 /* FormViewController.swift in Sources */,
 				468D143D1E41341A00E3C471 /* CameraViewController.swift in Sources */,
@@ -289,7 +301,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D6S47J43L;
 				INFOPLIST_FILE = "camera app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sdn.camera-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D6S47J43L;
 				INFOPLIST_FILE = "camera app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sdn.camera-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";

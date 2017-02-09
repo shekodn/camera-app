@@ -15,6 +15,9 @@ class NavigationVC: UINavigationController {
         // Status bar white font
 //        self.navigationBar.barStyle = UIBarStyle.black
 //        self.navigationBar.tintColor = UIColor.white
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+
 
 
     }

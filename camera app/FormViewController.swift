@@ -46,14 +46,10 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
         } else{
             
-            
             if (btnBack.tag == 0) { // 1 = cancel button
                 
                 print("Cancel nav bar button")
-                
             }
-            
-
         }
         
         
@@ -66,26 +62,20 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
-        
-        
         if let typeOfButtom = sender as? UIButton{
             
             if (btnSubmit.tag == 1) { // 1 = submit button
                 
                 print("Submit button")
                 submitReport(btnSubmit)
-
             }
             
         } else{
             
-            
             if (btnBack.tag == 0) { // 1 = cancel button
                 
                 print("Cancel nav bar button")
-                
             }
-
         }
     }
     
@@ -141,6 +131,7 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
             
             print("add action")
+            //perform segue with ok click!
             
         }))
        
