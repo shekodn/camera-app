@@ -21,7 +21,7 @@ class ReportsViewController: UITableViewController {
         for report in 1...20{
             
             temporal.id = report
-            temporal.description = "Quisque sit amet egestas lectus. Maecenas convallis dui vitae tempus porta. Curabitur id nisi vulputate, tristique ligula non, maximus lectus. Aenean non fermentum nisi, ac mollis tellus. In hac habitasse platea dictumst. Sed sit amet elit pretium urna sollicitudin eleifend. Morbi vel lorem nunc. In eleifend urna quis est accumsan porta eu in magna. Donec sit amet quam non nisl aliquet sagittis."
+            temporal.desc = "Quisque sit amet egestas lectus. Maecenas convallis dui vitae tempus porta. Curabitur id nisi vulputate, tristique ligula non, maximus lectus. Aenean non fermentum nisi, ac mollis tellus. In hac habitasse platea dictumst. Sed sit amet elit pretium urna sollicitudin eleifend. Morbi vel lorem nunc. In eleifend urna quis est accumsan porta eu in magna. Donec sit amet quam non nisl aliquet sagittis."
             reports.append(temporal)
         }
     }
@@ -42,8 +42,8 @@ class ReportsViewController: UITableViewController {
         
         print("INDEX = \(indexPath!.row)")
         
-        viewSpecificReport.sReportName = ("\(reports[indexPath!.row].name) #\((indexPath!.row))")
-        viewSpecificReport.sReportDescription = reports[indexPath!.row].description
+        viewSpecificReport.sReportName = ("\(reports[indexPath!.row].name!) #\((indexPath!.row))")
+        viewSpecificReport.sReportDescription = reports[indexPath!.row].desc!
     }
 
 
@@ -59,8 +59,8 @@ class ReportsViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel?.text = reports[indexPath.row].name
-        cell.detailTextLabel?.text = reports[indexPath.row].description
+        cell.textLabel?.text = reports[indexPath.row].name!
+        cell.detailTextLabel?.text = reports[indexPath.row].desc!
 
         return cell
     }

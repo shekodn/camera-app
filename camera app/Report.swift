@@ -7,51 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Report {
     
-    
-    //Private
-    var id : Int
-//        {
-//        get {
-//            return self.id
-//        }
-//        
-//        set{
-//            
-//            self.id = newValue
-//        }
-//        
-//    }
-    
-    var name : String
-//        {
-//        
-//        get {
-//            return self.name
-//        }
-//        
-//        set{
-//            
-//            self.name = newValue
-//        }
-//        
-//    }
-    
-    var description : String
-//        {
-//        
-//        get {
-//            return self.description
-//        }
-//        
-//        set{
-//            
-//            self.description = newValue
-//        }
-//    }
+    var id : Int!
+    var name : String!
+    var desc : String!
+    var image : UIImage!
     
     
     
@@ -60,14 +24,14 @@ class Report {
         
         id = 0
         name = "Report"
-        description = "No description"
+        desc = "No description"
     }
     
     public init(id:Int, name:String, description:String) {
         
         self.id = id
         self.name = name
-        self.description = description
+        self.desc = description
     }
 }
 
